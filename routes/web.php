@@ -41,7 +41,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Data Status
-Route::get('/statuspenduduk', [statuspendudukController::class, 'index']);
+Route::get('/statuspenduduk', [statuspendudukController::class, 'index'])->name('statuspenduduk.index');
+// Route::get('/statuspenduduk', [statuspendudukController::class, 'index']);
 Route::get('/statuspenduduk/tambah', [statuspendudukController::class, 'create']);
 Route::post('/statuspenduduk', [statuspendudukController::class, 'store']);
 Route::get('/statuspenduduk/edit/{id}', [statuspendudukController::class, 'edit']);

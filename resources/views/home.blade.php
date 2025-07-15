@@ -1,4 +1,4 @@
-{{-- @extends('layouts.template')
+@extends('layouts.template')
 
 @section('title', 'template')
 
@@ -18,7 +18,7 @@
     </div>
 @endsection
 
-@section('content')
+{{-- @section('content')
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">
@@ -110,7 +110,7 @@
 
 @endsection --}}
 
-@extends('layouts.template')
+{{-- @extends('layouts.template')
 
 @section('content')
 <div class="container">
@@ -133,4 +133,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}

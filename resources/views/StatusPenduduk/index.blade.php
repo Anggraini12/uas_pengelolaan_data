@@ -1,11 +1,11 @@
 @extends('layouts.template')
 
 @section('title')
-    StatusPenduduk
+    statuspenduduk
 @endsection
 
 @section('headline')
-   StatusPenduduk
+   statuspenduduk
 @endsection
 
 @section('content')
@@ -97,5 +97,6 @@
                         </tbody>
                     </table>
     </div>
+</div>
 
 @endsection

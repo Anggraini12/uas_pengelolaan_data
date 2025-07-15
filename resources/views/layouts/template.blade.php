@@ -201,7 +201,7 @@
           <ul class="nav">
             <li class="nav-item nav-category">Main</li>
             <li class="nav-item">
-              <a class="nav-link" href="'/home.blade.php">
+              <a class="nav-link" href="/home">
                 <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
                 <span class="menu-title">Dashboard</span>
               </a>
@@ -251,9 +251,11 @@
 
           </ul>
         </nav>
+        
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
+            @yield('content')
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->
