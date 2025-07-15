@@ -54,6 +54,15 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
+                                
+                                <form method="GET" action="{{ route('logout') }}">
+                                @csrf
+                                <button class="dropdown-item" type="submit">
+                                    <i class="mdi mdi-logout text-primary"></i> Logout
+                                </button>
+                                </form>
+
+{{-- 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -64,7 +73,7 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                </div>
+                                </div> --}}
                             </li>
                         @endguest
                     </ul>

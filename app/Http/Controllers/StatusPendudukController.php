@@ -2,63 +2,70 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\StatusPenduduk;
 use Illuminate\Http\Request;
+use App\Models\Statuspenduduk;
 
-class StatusPendudukController extends Controller
+
+class statuspendudukController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $penduduk = StatusPenduduk::all();
-        return view('penduduk.index', compact('penduduk'));
+        //menampilkan data statuspenduduk
+        $penduduk = StatusPenduduk::all(); // Ambil semua data dari tabel
+        $nomor = 1;
+
+        return view('statuspenduduk.index', compact('penduduk', 'nomor'));
     }
 
+    /**
+     * Show the form for creating a new resource.
+     */
     public function create()
     {
-        return view('penduduk.create');
+        //
+        return view('StatusPenduduk');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
-        $request->validate([
-            'nik' => 'required|unique:statuspenduduks,nik|max:16',
-            'nama' => 'required',
-            'alamat' => 'required',
-            'tempat_lahir' => 'required',
-            'tgl_lahir' => 'required|date',
-            'status' => 'required',
-            'jenis_kelamin' => 'required|in:L,P',
-        ]);
-
-        StatusPenduduk::create($request->all());
-        return redirect()->route('penduduk.index')->with('success', 'Data berhasil ditambahkan');
+        //
     }
 
-    public function show($nik)
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
     {
-        $penduduk = StatusPenduduk::findOrFail($nik);
-        return view('penduduk.show', compact('penduduk'));
+        //
     }
 
-    public function edit($nik)
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
     {
-        $penduduk = StatusPenduduk::findOrFail($nik);
-        return view('penduduk.edit', compact('penduduk'));
+        //
     }
 
-    public function update(Request $request, $nik)
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
     {
-        $penduduk = StatusPenduduk::findOrFail($nik);
-        $penduduk->update($request->all());
-
-        return redirect()->route('penduduk.index')->with('success', 'Data berhasil diperbarui');
+        //
     }
 
-    public function destroy($nik)
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
     {
-        $penduduk = StatusPenduduk::findOrFail($nik);
-        $penduduk->delete();
-
-        return redirect()->route('penduduk.index')->with('success', 'Data berhasil dihapus');
+        //
     }
 }
