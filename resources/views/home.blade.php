@@ -1,136 +1,76 @@
 @extends('layouts.template')
 
-@section('title', 'template')
-
-@section('headline', 'template')
-
-@section('content')
-    <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Selamat Datang</h3>
-        </div>
-        <div class="card-body">
-          Selamat Datang Di Web Kantor Desa, semoga harimu menyenangkan.
-        </div>
-        <div class="card-footer">
-          Footer
-        </div>
-    </div>
-@endsection
-
-{{-- @section('content')
-<div class="card">
-    <div class="card-header">
-        <h3 class="card-title">
-            <a href="/statuspenduduk/tambah" class="btn btn-primary btn-sm"><i class="fa fa-user-plus"></i> Tambah Data</a>
-        </h3>
-
-        <div class="card-tools">
-        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-            <i class="fas fa-minus"></i>
-        </button>
-        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-            <i class="fas fa-times"></i>
-        </button>
-        </div>
-    </div>
-    <div class="card-body">
-        <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Nik</th>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Alamat</th>
-                                <th scope="col">Tempat LAhir</th>
-                                <th scope="col">Tanggal LAhir</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Jenis Kelamin</th>
-                                <th scope="col">Gol Darah</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse ( $statuspenduduk as $data)
-                                <tr>
-                                    <th scope="row">{{$nomor++}}</th>
-                                    <td>{{$data->nik}}</td>
-                                    <td>{{$data->nama}}</td>
-                                    <td>{{$data->alamat}}</td>
-                                    <td>{{$data->tempat_lahir}}</td>
-                                    <td>{{$data->tgl_lahir}}</td>
-                                    <td>{{$data->status}}</td>
-                                    <td>{{$data->jenis_kelamin}}</td>
-                                    <td>{{$data->gol_darah}}</td>
-                                    <td>
-                                        <a href="" class="btn btn-warning btn-sm"><i class="fa fa-info"></i></a>
-                                        <a href="/statuspenduduk/edit/{{$data->nik}}" class="btn btn-info btn-sm"><i class="fa fa-pen"></i></a>
-
-
-                                        <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{$data->id}}">
-                                        <i class="fa fa-trash"></i>
-                                        </button>
-
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal{{$data->nik}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Peringatan</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Yakin Data Penduduk a.n. {{$data->nama}} ingin dihapus?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                <form action="statuspenduduk/{{$data->nik}}" method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Hapus</button>
-                                                </form>
-
-                                            </div>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @empty
-                                <tr>
-                                    <th colspan="5" scope="row">Data Tidak Ada</th>
-                                </tr>
-                            @endforelse
-
-
-                        </tbody>
-                    </table>
-    </div>
-
-@endsection --}}
-
-{{-- @extends('layouts.template')
+@section('title', 'Dashboard')
+@section('headline', 'Dashboard')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+<div class="row">
+    <!-- Selamat Datang -->
+    <div class="col-12">
+        <div class="alert alert-success shadow-sm">
+            <h4 class="mb-1">Selamat Datang di Sistem Informasi Kantor Desa!</h4>
+            <p class="mb-0">Semoga harimu menyenangkan. Silakan kelola data penduduk, kegiatan, dan surat dengan mudah melalui dashboard ini.</p>
+        </div>
+    </div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                    Hello World
+    <!-- Kartu Statistik -->
+    <div class="col-md-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body d-flex align-items-center">
+                <div class="me-3">
+                    <i class="fa fa-users fa-2x text-primary"></i>
+                </div>
+                <div>
+                    <div class="text-xs fw-bold text-primary text-uppercase mb-1">Status Penduduk</div>
+                    <div class="h5 mb-0 fw-bold"></div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="col-md-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body d-flex align-items-center">
+                <div class="me-3">
+                    <i class="fa fa-calendar fa-2x text-success"></i>
+                </div>
+                <div>
+                    <div class="text-xs fw-bold text-success text-uppercase mb-1">Informasi Kegiatan</div>
+                    <div class="h5 mb-0 fw-bold"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body d-flex align-items-center">
+                <div class="me-3">
+                    <i class="fa fa-envelope fa-2x text-warning"></i>
+                </div>
+                <div>
+                    <div class="text-xs fw-bold text-warning text-uppercase mb-1">Surat Diajukan</div>
+                    <div class="h5 mb-0 fw-bold"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tambahan Info -->
+    <div class="col-12 mt-4">
+        <div class="card">
+            <div class="card-header bg-light">
+                <h5 class="card-title mb-0">Informasi Umum</h5>
+            </div>
+            <div class="card-body">
+                <p>Sistem ini dibuat untuk membantu pengelolaan administrasi dan layanan masyarakat di Kantor Desa.</p>
+                <ul>
+                    <li>Kelola Data Status Penduduk</li>
+                    <li>Catat dan Publikasikan Kegiatan Desa</li>
+                    <li>Proses Permohonan Surat dengan Cepat</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
-@endsection --}}
+@endsection
