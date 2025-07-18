@@ -6,7 +6,7 @@
 @section('content')
 <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
-        <h3 class="card-title mb-0">Data Kegiatan</h3>
+        <h3 class="card-title mb-0">Informasi Kegiatan</h3>
         <a href="/kegiatan/create" class="btn btn-primary btn-sm">
             <i class="fa fa-plus"></i> Tambah Data
         </a>
